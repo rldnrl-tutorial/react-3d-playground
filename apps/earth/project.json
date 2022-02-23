@@ -1,0 +1,70 @@
+{
+  "root": "apps/earth",
+  "sourceRoot": "apps/earth/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/earth",
+        "index": "apps/earth/src/index.html",
+        "baseHref": "/",
+        "main": "apps/earth/src/main.tsx",
+        "polyfills": "apps/earth/src/polyfills.ts",
+        "tsConfig": "apps/earth/tsconfig.app.json",
+        "assets": ["apps/earth/src/favicon.ico", "apps/earth/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/earth/src/environments/environment.ts",
+              "with": "apps/earth/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "earth:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "earth:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/earth/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/earth"],
+      "options": {
+        "jestConfig": "apps/earth/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

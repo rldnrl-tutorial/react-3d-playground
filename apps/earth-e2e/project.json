@@ -1,0 +1,28 @@
+{
+  "root": "apps/earth-e2e",
+  "sourceRoot": "apps/earth-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/earth-e2e/cypress.json",
+        "devServerTarget": "earth:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "earth:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/earth-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["earth"]
+}
