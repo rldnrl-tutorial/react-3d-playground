@@ -23,13 +23,17 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "extends": ["plugin:@nrwl/nx/typescript", "plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
+      "extends": ["plugin:@nrwl/nx/javascript", "plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": "error"
+      }
     }
   ]
 }
