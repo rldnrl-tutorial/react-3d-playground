@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import Earth from '../components/earth'
+import Earth from '../components/Earth'
 
 const canvasStyleContainer = css`
   width: 100%;
